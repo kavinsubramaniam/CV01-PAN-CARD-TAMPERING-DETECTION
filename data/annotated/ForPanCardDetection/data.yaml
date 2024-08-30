@@ -1,0 +1,8 @@
+path: K:\PROJECTS\COMPUTER-VISION-PROJECTS\CV01-PAN-CARD-TAMPERING-DETECTION\data\annotated\ForPanCardDetection
+
+train: ../images/train
+val: ../images/valid
+test: ../images/test
+
+nc: 1
+names: ['Pan-Card']
