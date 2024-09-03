@@ -1,71 +1,76 @@
 import cv2
-import os
 import numpy as np
 
 
 class Preprocessing:
     def skewCorrection(self, img_org, threshold):
         """
-        description: This function will correct the skew by using canny edge detection and
-        hough Lines predictions
-        :param img_org: Image in BGR format
-        :param threshold: The threshold for median angle
-        :return: Rotated Image in BGR format
+        This function corrects the skew of an image using Canny edge detection and
+        Hough Line Transformation.
+
+        Args:
+            img_org (numpy.ndarray): Image in BGR format.
+            threshold (float): Threshold to ignore small skew angles.
+
+        Returns:
+            numpy.ndarray: Rotated image in BGR format.
         """
 
-        # Making a copy of the original image for safe processing
+        # Make a copy of the original image
         img = img_org.copy()
 
-        # Making sure the image is valid
+        # Ensure the image is valid
         if img is not None:
-
-            # Converting the image to Gray scale for further processing
+            # Convert the image to grayscale
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-            # Canny edge detection
+            # Apply Canny edge detection
             edges = cv2.Canny(gray, 50, 150, apertureSize=3)
 
-            # Hough Lines Prediction
+            # Hough Line Transformation to detect lines
             lines = cv2.HoughLinesP(
                 edges, 1, np.pi / 180, 100, minLineLength=100, maxLineGap=50
             )
 
-            # for storing the angles
             angles = []
             try:
                 for line in lines:
-                    # The coordinates from the lines detected from Hough Lines Prediction
+                    # Extract the coordinates of the line
                     x1, y1, x2, y2 = line[0]
 
-                    # Finding the angles
+                    # Calculate the angle of the line
                     angle = np.degrees(np.arctan2(y2 - y1, x2 - x1))
                     angles.append(angle)
 
-                # Finding the average angle
+                # Calculate the median angle
                 median_angle = np.median(angles)
 
-                # Making sure the average angle is within the threshold
-                median_angle = (
-                    0
-                    if median_angle > threshold or median_angle < -threshold
-                    else median_angle
-                )
+                # Ignore small angles (within the threshold)
+                if abs(median_angle) > threshold:
+                    print(
+                        f"Applying skew correction with angle: {median_angle} degrees"
+                    )
+                else:
+                    print(
+                        f"Skew angle {median_angle} is within the threshold. No correction needed."
+                    )
+                    median_angle = 0
 
-            except:
-                # if any error is raised the image will not be corrected
-                print("An error occurred, The image is not Corrected!")
+            except Exception as e:
+                print(f"An error occurred during skew correction: {e}")
                 median_angle = 0
 
-            # Taking the height and width of the image
+            # Get the image dimensions
             rows, cols = img.shape[:2]
 
-            # Rotating the image
+            # Calculate the rotation matrix
             M = cv2.getRotationMatrix2D((cols / 2, rows / 2), median_angle, 1)
 
-            # Wrapping the image to its original height and width
+            # Rotate the image
             rotated = cv2.warpAffine(img, M, (cols, rows))
 
             return rotated
 
         else:
+            print("Invalid image input!")
             return None
