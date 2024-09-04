@@ -65,7 +65,6 @@ class DetectPancardTampering:
                 except:
                     continue
 
-                cv2.namedWindow("ocr", cv2.WINDOW_NORMAL)
                 x, y, w, h = temp_d[:4]
                 cv2.rectangle(original, (int(x), int(y)), (int(x) + int(w), int(y) + int(h)), (0, 255, 0), 2)
                 font = cv2.FONT_HERSHEY_SIMPLEX
