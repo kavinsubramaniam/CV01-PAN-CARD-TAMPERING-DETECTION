@@ -1,0 +1,9 @@
+datasets==2.21.0
+evaluate==0.4.2
+numpy
+opencv-python==4.10.0.84
+Pillow==10.4.0
+pytesseract==0.3.13
+streamlit==1.38.0
+transformers==4.44.2
+ultralytics==8.2.83
