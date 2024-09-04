@@ -50,86 +50,84 @@ st.session_state.page = st.sidebar.radio(
     index=["Home", "Model Testing"].index(st.session_state.page),
 )
 
-# Content display based on the selected page
 if st.session_state.page == "Home":
-    # Home page with project description
     st.title("Project Description")
-    st.write(
+    st.markdown(
         """
-    ## PAN Card Tampering Detection
-    The PAN Card Tampering Detection project is designed to identify fraudulent or altered PAN cards 
+    <h2>PAN Card Tampering Detection</h2>
+    <p>The PAN Card Tampering Detection project is designed to identify fraudulent or altered PAN cards 
     using advanced deep learning and computer vision techniques. The project integrates YOLO (You Only Look Once) 
     object detection, OpenCV image processing, and Optical Character Recognition (OCR) to analyze PAN cards 
-    and detect any tampering in the provided images.
-    """
+    and detect any tampering in the provided images.</p>
+    """, unsafe_allow_html=True
     )
 
-    st.write("""### Key Components:""")
-    st.markdown(
-        """#### 1. Preprocessing:
-    - The image undergoes skew correction to properly align the PAN card, enhancing detection and OCR accuracy."""
-    )
-
-    st.markdown(
-        """#### 2. YOLO-Based PAN Card Detection:
-    - A YOLO model detects the PAN card in the image and outputs bounding boxes around it. 
-    This enables cropping for further processing."""
-    )
-
-    st.markdown(
-        """#### 3. OCR (Optical Character Recognition):
-    - OCR is applied to extract text from the detected and cropped PAN card, including the PAN number and date of birth."""
-    )
-
-    st.markdown(
-        """#### 4. Tampering Detection:
-    - Regular expressions validate the PAN number and date of birth formats. 
-    Mismatches in the extracted text may indicate tampering."""
-    )
-
-    st.markdown(
-        """### Workflow:
-    - **Input:** Image with a PAN card.
-    - **Preprocessing:** Skew correction to align the PAN card.
-    - **Detection:** YOLO model detects and crops the PAN card from the image.
-    - **OCR Processing:** Text extraction using OCR.
-    - **Validation:** Text analysis for tampering detection based on format validation.
-    - **Output:** Prediction of whether the PAN card is tampered with or not."""
-    )
-
-    st.markdown(
-        """### Usage:
-    - The project can be used in automated systems for PAN card verification in financial institutions 
-    and government services."""
-    )
-
-    st.markdown(
-        """### Future Enhancements:
-    - **Enhanced Model:** Further training the YOLO model on a more diverse dataset.
-    - **Integration:** Incorporating this system into broader document verification frameworks."""
-    )
-
-    st.markdown(
-        """### Conclusion:
-    The PAN Card Tampering Detection project offers an efficient and automated solution for ensuring 
-    the integrity of PAN cards by leveraging deep learning and image processing techniques."""
-    )
-
-    st.markdown("### References and Resources:")
     st.markdown(
         """
-    1. **YOLO (You Only Look Once) - Ultralytics**
-       - **Website**: [Ultralytics YOLO](https://ultralytics.com/yolov5)
-       - **GitHub Repository**: [Ultralytics YOLO GitHub](https://github.com/ultralytics/yolov5)
+    <h3>Key Components:</h3>
+    <ul>
+        <li><strong>Preprocessing:</strong> The image undergoes skew correction to properly align the PAN card, enhancing detection and OCR accuracy.</li>
+        <li><strong>YOLO-Based PAN Card Detection:</strong> A YOLO model detects the PAN card in the image and outputs bounding boxes around it. This enables cropping for further processing.</li>
+        <li><strong>OCR (Optical Character Recognition):</strong> OCR is applied to extract text from the detected and cropped PAN card, including the PAN number and date of birth.</li>
+        <li><strong>Tampering Detection:</strong> Regular expressions validate the PAN number and date of birth formats. Mismatches in the extracted text may indicate tampering.</li>
+    </ul>
+    """, unsafe_allow_html=True
+    )
 
-    2. **Tesseract OCR - Google**
-       - **Website**: [Tesseract OCR](https://opensource.google/projects/tesseract)
-       - **GitHub Repository**: [Tesseract OCR GitHub](https://github.com/tesseract-ocr/tesseract)
+    st.markdown(
+        """
+    <h3>Workflow:</h3>
+    <ul>
+        <li><strong>Input:</strong> Image with a PAN card.</li>
+        <li><strong>Preprocessing:</strong> Skew correction to align the PAN card.</li>
+        <li><strong>Detection:</strong> YOLO model detects and crops the PAN card from the image.</li>
+        <li><strong>OCR Processing:</strong> Text extraction using OCR.</li>
+        <li><strong>Validation:</strong> Text analysis for tampering detection based on format validation.</li>
+        <li><strong>Output:</strong> Prediction of whether the PAN card is tampered with or not.</li>
+    </ul>
+    """, unsafe_allow_html=True
+    )
 
-    3. **Streamlit**
-       - **Website**: [Streamlit](https://streamlit.io/)
-       - **GitHub Repository**: [Streamlit GitHub](https://github.com/streamlit/streamlit)
-    """
+    st.markdown(
+        """
+    <h3>Usage:</h3>
+    <p>The project can be used in automated systems for PAN card verification in financial institutions and government services.</p>
+    """, unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+    <h3>Future Enhancements:</h3>
+    <ul>
+        <li><strong>Enhanced Model:</strong> Further training the YOLO model on a more diverse dataset.</li>
+        <li><strong>Integration:</strong> Incorporating this system into broader document verification frameworks.</li>
+    </ul>
+    """, unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+    <h3>Conclusion:</h3>
+    <p>The PAN Card Tampering Detection project offers an efficient and automated solution for ensuring 
+    the integrity of PAN cards by leveraging deep learning and image processing techniques.</p>
+    """, unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+    <h3>References and Resources:</h3>
+    <ul>
+        <li><strong>YOLO (You Only Look Once) - Ultralytics</strong><br>
+            <a href="https://ultralytics.com/yolov5">Ultralytics YOLO</a><br>
+            <a href="https://github.com/ultralytics/yolov5">Ultralytics YOLO GitHub</a></li>
+        <li><strong>Tesseract OCR - Google</strong><br>
+            <a href="https://opensource.google/projects/tesseract">Tesseract OCR</a><br>
+            <a href="https://github.com/tesseract-ocr/tesseract">Tesseract OCR GitHub</a></li>
+        <li><strong>Streamlit</strong><br>
+            <a href="https://streamlit.io/">Streamlit</a><br>
+            <a href="https://github.com/streamlit/streamlit">Streamlit GitHub</a></li>
+    </ul>
+    """, unsafe_allow_html=True
     )
 
 elif st.session_state.page == "Model Testing":

@@ -4,6 +4,8 @@
 
 The PAN Card Tampering Detection project aims to identify fraudulent or altered PAN cards using advanced deep learning and computer vision techniques. The project integrates YOLO (You Only Look Once) object detection, OpenCV for image processing, and Optical Character Recognition (OCR) to analyze PAN cards from images and detect any tampering.
 
+[Click here to view the demo](https://pan-card-tampering-detection.streamlit.app/)
+
 ## Table of Contents
 
 - [Overview](#overview)
