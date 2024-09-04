@@ -25,7 +25,7 @@ The PAN Card Tampering Detection project aims to identify fraudulent or altered 
 - **Tampering Detection:** Validates extracted text to detect tampering by comparing with expected formats.
 
 ## Project Structure
-
+```
 ├── data
 │   ├── raw                        # Raw input images
 │   ├── preprocessed               # Skew corrected images
@@ -50,7 +50,7 @@ The PAN Card Tampering Detection project aims to identify fraudulent or altered 
 │   ├── app.py                     # Script to run the Streamlit app
 │   └── detectTampering.py         # Script to identify tampering
 └── README.md                      # Project documentation
-
+```
 
 ## Setup guide
 
