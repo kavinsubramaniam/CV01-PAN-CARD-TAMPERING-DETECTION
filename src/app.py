@@ -65,29 +65,29 @@ if st.session_state.page == "Home":
     )
 
     st.write("""### Key Components:""")
-    st.write(
+    st.markdown(
         """#### 1. Preprocessing:
     - The image undergoes skew correction to properly align the PAN card, enhancing detection and OCR accuracy."""
     )
 
-    st.write(
+    st.markdown(
         """#### 2. YOLO-Based PAN Card Detection:
     - A YOLO model detects the PAN card in the image and outputs bounding boxes around it. 
     This enables cropping for further processing."""
     )
 
-    st.write(
+    st.markdown(
         """#### 3. OCR (Optical Character Recognition):
     - OCR is applied to extract text from the detected and cropped PAN card, including the PAN number and date of birth."""
     )
 
-    st.write(
+    st.markdown(
         """#### 4. Tampering Detection:
     - Regular expressions validate the PAN number and date of birth formats. 
     Mismatches in the extracted text may indicate tampering."""
     )
 
-    st.write(
+    st.markdown(
         """### Workflow:
     - **Input:** Image with a PAN card.
     - **Preprocessing:** Skew correction to align the PAN card.
@@ -97,19 +97,19 @@ if st.session_state.page == "Home":
     - **Output:** Prediction of whether the PAN card is tampered with or not."""
     )
 
-    st.write(
+    st.markdown(
         """### Usage:
     - The project can be used in automated systems for PAN card verification in financial institutions 
     and government services."""
     )
 
-    st.write(
+    st.markdown(
         """### Future Enhancements:
     - **Enhanced Model:** Further training the YOLO model on a more diverse dataset.
     - **Integration:** Incorporating this system into broader document verification frameworks."""
     )
 
-    st.write(
+    st.markdown(
         """### Conclusion:
     The PAN Card Tampering Detection project offers an efficient and automated solution for ensuring 
     the integrity of PAN cards by leveraging deep learning and image processing techniques."""
@@ -151,5 +151,7 @@ elif st.session_state.page == "Model Testing":
         # Display the prediction results
         for i, val in enumerate(result):
             col2.markdown(
-                f"Result for PAN card {i + 1}: {'Tampered' if val == 1 else 'Not Tampered'}"
+                f"Result for PAN card {i + 1}: {'Tampered' if val == 0 else 'Not Tampered'}"
             )
+
+    st.markdown(">Sometimes The result will be affected by the quality of photo which is provided.")
