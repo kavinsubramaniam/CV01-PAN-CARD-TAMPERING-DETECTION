@@ -94,8 +94,3 @@ class DetectPancardTampering:
         if all(flag):
             return 1
         return 0
-
-if __name__ == "__main__":
-    img = cv2.imread("../data/raw/32.jpg")
-    obj = DetectPancardTampering()
-    print(obj.detect(img, show_ocr=True)[0])
