@@ -1,15 +1,15 @@
 from ultralytics import YOLO
-import torch
+# import torch
 
 # Load the YOLO model
 model = YOLO("./yolov8n.pt")
 
-# Check if CUDA is available and set the device accordingly
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.to(device)
+# # Check if CUDA is available and set the device accordingly
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# model.to(device)
 
 # Print the device being used for training
-print(f"Using device: {device}")
+# print(f"Using device: {device}")
 
 try:
     # Train the model
