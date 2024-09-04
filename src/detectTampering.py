@@ -51,10 +51,6 @@ class DetectPancardTampering:
                 cv2.rectangle(image_copy_1, (x1, y1 - label_height - baseline), (x1 + label_width, y1), (0, 255, 0),
                               -1)
                 cv2.putText(image_copy_1, label, (x1, y1 - baseline), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
-                if show:
-                    cv2.imshow("Yolo", image_copy_1)
-                    cv2.waitKey(0)
-                    cv2.destroyAllWindows()
         return detections, image_copy_1
 
     def ocr(self, pancard, original, show_ocr=False):
@@ -79,9 +75,6 @@ class DetectPancardTampering:
                 thickness = 2
                 cv2.putText(original, f'{temp_d[-1]}', org, font,
                             fontScale, color, thickness, cv2.LINE_AA)
-        if show_ocr:
-            cv2.imshow("ocr", original)
-            cv2.waitKey(0)
         return detections
 
     def prediction(self, ocr_data):
