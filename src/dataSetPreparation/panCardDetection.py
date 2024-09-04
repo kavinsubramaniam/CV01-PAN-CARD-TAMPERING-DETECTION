@@ -2,6 +2,7 @@ from ultralytics import YOLO
 import os
 import cv2
 
+
 # Load the YOLO model
 model = YOLO("../../model/PanCardDetection/runs/detect/train9/weights/best.pt")
 

@@ -8,7 +8,7 @@ import re
 class DetectPancardTampering:
     def __init__(self):
         self.preprocessor = Preprocessing()
-        self.detectionModel = YOLO("../model/PanCardDetection/runs/detect/train12/weights/best.pt")
+        self.detectionModel = YOLO("best.pt")
 
     def detect(self, image, show=False, show_ocr=False):
         image_copy = image.copy()
