@@ -26,32 +26,30 @@ The PAN Card Tampering Detection project aims to identify fraudulent or altered 
 
 ## Project Structure
 
-
-├── **data**
-│   ├── **raw**                  # Raw input images
-│   ├── **preprocessed**         # Skew corrected images
-│   ├── **detected_pancards**    # Cropped images with detected PAN cards
-│   └── **annotated**            # Annotated data for training
-│
-├── **model**                   # YOLO model weights
-│   ├──**PanCardDetection**
-│	  │   ├── **runs**
-│   │   │  └── **detects** # all the weights of finetunned yolov8
-│   │   ├── yolov8Training.py # Finetunning yolov8n
-│   │   └── yolov8n.pt # yolov8n model file 
-│	  └── **TokenClassification**
-│   ---├── layoutLMv2Training.py # Finetunning layoutlmv2 for pancards
-│   ---└── layoutLMv2Testing.py # Testing layoutLMv2
-│   
-├── **src**
-│   ├── **preprocessor**
-│   │  ├── preprocessor.py  # Preprocessing module where skew correction is done
-│   ├── **dataSetPreparation**
-│   │  ├── dataPreprocessing.py   # The preprocessing for dataset creation
-│   │  ├── panCardDetection.py # Detecting the pancards using yolov8 
-│   ├── app.py       # Script run the streamlit app
-│   ├── detectTampering.py       # Script identify the tampering
-└── README.md                # Project documentation
+├── data
+│   ├── raw                        # Raw input images
+│   ├── preprocessed               # Skew corrected images
+│   ├── detected_pancards          # Cropped images with detected PAN cards
+│   └── annotated                  # Annotated data for training
+├── model
+│   ├── YOLO model weights
+│   ├── PanCardDetection
+│   │   ├── runs
+│   │   │   └── detects            # All the weights of fine-tuned YOLOv8
+│   │   ├── yolov8Training.py      # Fine-tuning YOLOv8n
+│   │   └── yolov8n.pt             # YOLOv8n model file
+│   └── TokenClassification
+│       ├── layoutLMv2Training.py  # Fine-tuning LayoutLMv2 for PAN cards
+│       └── layoutLMv2Testing.py   # Testing LayoutLMv2
+├── src
+│   ├── preprocessor
+│   │   └── preprocessor.py        # Preprocessing module where skew correction is done
+│   ├── dataSetPreparation
+│   │   ├── dataPreprocessing.py   # The preprocessing for dataset creation
+│   │   └── panCardDetection.py    # Detecting the PAN cards using YOLOv8
+│   ├── app.py                     # Script to run the Streamlit app
+│   └── detectTampering.py         # Script to identify tampering
+└── README.md                      # Project documentation
 
 
 ## Setup guide
