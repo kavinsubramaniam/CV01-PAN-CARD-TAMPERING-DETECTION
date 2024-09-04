@@ -3,12 +3,15 @@ import cv2
 from ultralytics import YOLO
 import pytesseract
 import re
+import os
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(script_dir, 'best.pt')
 
 class DetectPancardTampering:
     def __init__(self):
         self.preprocessor = Preprocessing()
-        self.detectionModel = YOLO("best.pt")
+        self.detectionModel = YOLO(model_path)
 
     def detect(self, image, show=False, show_ocr=False):
         image_copy = image.copy()
